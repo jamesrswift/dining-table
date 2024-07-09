@@ -7,17 +7,6 @@ Basically, if you are tabulating data where each row is an observation, and some
 
 <img alt="Light" src="./docs/examples/ledger.png">
 
-## Template adaptation checklist
-
-- [ ] Fill out `README.md`
-  - Change the `my-package` package name, including code snippets
-  - Check section contents and/or delete sections that don't apply
-- [ ] Fill out `typst.toml`
-  - See also the [typst/packages README](https://github.com/typst/packages/?tab=readme-ov-file#package-format)
-    if configured correctly, whenever you create a tag `v...`, your package will be pushed onto a branch on the `REGISTRY_REPO`, from which you can then create a pull request against [typst/packages](https://github.com/typst/packages/)
-- [ ] (add your actual code, docs and tests)
-- [ ] remove this section from the README
-
 ## Usage
 
 See the manual for in-depth usage, but for a quick reference, here is the ledger example (which is fully featured)
