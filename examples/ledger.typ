@@ -1,4 +1,4 @@
-#import "../../src/lib.typ" as dining-table
+#import "../src/lib.typ" as dining-table
 
 #let data = (
   (

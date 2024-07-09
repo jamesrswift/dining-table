@@ -1,4 +1,4 @@
-#import "../../src/lib.typ" as dining-table
+#import "../src/lib.typ" as dining-table
 
 #set par(justify: true)
 #set text(size: 12pt)
