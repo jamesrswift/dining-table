@@ -5,6 +5,8 @@ Implements a layer on top of table to allow the user to define a table by column
 
 Basically, if you are tabulating data where each row is an observation, and some features (columns) are to be grouped (a common case for scientific data) then this package might be worth checking out. Another use case is where you have multiple tables with identical layouts, and you wish to keep them all consistent with one another.
 
+<img alt="Light" src="./docs/examples/ledger.png">
+
 ## Template adaptation checklist
 
 - [ ] Fill out `README.md`

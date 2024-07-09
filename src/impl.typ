@@ -121,6 +121,14 @@
   )
 }
 
+/// Renders a table following a given column specification
+/// - columns (array): 
+/// - data (array):
+/// - hline (content): Content to be rendered after each row of `data`. Typically `table.hline(...)` but there's probably some funky uses
+/// - toprule (arguments): 
+/// - midrule (arguments): 
+/// - bottomrule (arguments): 
+/// - notes (content): 
 #let make(
   columns: (), 
   data: (), 
@@ -128,7 +136,7 @@
   toprule: toprule,
   midrule: midrule,
   bottomrule: bottomrule,
-  notes: note.display-list, // ADDED
+  notes: note.display-list,
   ..args
 ) = {
 
