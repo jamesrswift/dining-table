@@ -1,3 +1,5 @@
+# use PowerShell instead of sh:
+set shell := ["powershell.exe", "-c"]
 root := justfile_directory()
 
 export TYPST_ROOT := root
