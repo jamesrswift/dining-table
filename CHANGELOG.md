@@ -1,4 +1,4 @@
-# [unreleased](https://github.com/JamesxX/dining-table/releases/tags/)
+# [v0.1.0](https://github.com/JamesxX/dining-table/releases/tags/v0.1.1)
 ## Added
 
 ## Removed

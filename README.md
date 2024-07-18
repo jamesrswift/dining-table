@@ -1,5 +1,5 @@
 # The `dining-table` Package
-<div align="center">Version 0.1.0</div>
+<div align="center">Version 0.1.1</div>
 
 Implements a layer on top of table to allow the user to define a table by column rather than by row, to automatically handle headers and footers, to implement table footnotes, to handle nested column quirks for you, to handle rendering nested data structures.
 
@@ -12,7 +12,7 @@ Basically, if you are tabulating data where each row is an observation, and some
 See the manual for in-depth usage, but for a quick reference, here is the ledger example (which is fully featured)
 
 ```typ
-#import "@preview/dining-table:0.1.0"
+#import "@preview/dining-table:0.1.1"
 
 #let data = (
   (
