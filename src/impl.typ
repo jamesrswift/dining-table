@@ -1,5 +1,7 @@
 #import "styles.typ": *
 #import "note.typ"
+#import "deps.typ": *
+#import "validation.typ"
 
 // Query is an array of key, value, and inherit
 #let recurse-columns(columns, queries) = {
@@ -140,6 +142,9 @@
   ..args
 ) = {
 
+  // Recurse once to handle input validate
+  columns = z.parse(columns, validation.columns-schema)
+
   let (columns, max-depth, length) = sanitize-input(columns, depth: 0)
   let query-result = recurse-columns(columns, (
     fill: (inherit: true, default: none),
@@ -160,8 +165,12 @@
     stroke: none,
     fill: query-result.map(it=>it.fill.value),
     align: query-result.map(it=>it.align.value),
-    column-gutter: query-result.map(it=>it.gutter.value),
-    columns: query-result.map(it=>it.width.value),
+    column-gutter: query-result.map(
+      it=>{if it.gutter.value != none {it.gutter.value} else {auto}}
+    ),
+    columns: query-result.map(
+      it=>{if it.width.value != none {it.width.value} else {auto}}
+    ),
     table.header(
       table.hline(stroke: toprule),
       ..build-header(columns, max-depth: max-depth),
