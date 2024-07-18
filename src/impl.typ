@@ -134,6 +134,8 @@
 #let make(
   columns: (), 
   data: (), 
+  header: auto,
+  footer: none,
   hline: none,
   toprule: toprule,
   midrule: midrule,
@@ -171,11 +173,18 @@
     columns: query-result.map(
       it=>{if it.width.value != none {it.width.value} else {auto}}
     ),
-    table.header(
-      table.hline(stroke: toprule),
-      ..build-header(columns, max-depth: max-depth),
-      table.hline(stroke: midrule, y: max-depth),
-    ),
+    ..(if header != none {
+      (table.hline(stroke: toprule, y:0),)
+      (table.header(
+        ..if header == auto{
+          build-header(columns, max-depth: max-depth)
+          (table.hline(stroke: midrule, y: max-depth),)
+        } else {
+          header
+          (table.hline(stroke: midrule),)
+        }
+      ),)
+    } else {(table.hline(stroke: toprule, y:0),)}),
     ..args,
     ..(
       for entry in data{ 
@@ -187,7 +196,13 @@
         if hline != none {(hline,)}
       }
     ),
-    table.hline(stroke: bottomrule)
+    if footer == none {table.hline(stroke: bottomrule)} else {
+      table.footer(
+        table.hline(stroke: midrule),
+        ..footer,
+        table.hline(stroke: bottomrule)
+      )
+    }
   ) + if (notes != none) {note.display-style(notes)} // ADDED
   
 }
