@@ -1,18 +1,6 @@
-#import "/src/lib.typ" as dining-table
-
-#let data = (
-  (
-    date: datetime.today(),
-    particulars: lorem(05),
-    ledger: [JRS123] + dining-table.note.make[Hello World],
-    amount: (unit: 100, decimal: 00),
-    total: (unit: 99, decimal: 00),
-  ),
-)*7 
-
-#import "@preview/typpuccino:0.1.0"
-#let bg-fill-1 = typpuccino.latte.base
-#let bg-fill-2 = typpuccino.latte.mantle
+#import "../../ledger.typ": *
+#set text(size: 11pt)
+#set page(height: 7.5cm, margin: 1em)
 
 #let example = (
   (
@@ -49,6 +37,7 @@
         align: right,
         vline: arguments(stroke: dining-table.lightrule),
         gutter: 0em,
+        display: dining-table.contextual.counted.with(name: "amount.unit")
       ),
       (
         key: "amount.decimal",
@@ -69,6 +58,7 @@
         align: right,
         vline: arguments(stroke: dining-table.lightrule),
         gutter: 0em,
+        display: dining-table.contextual.counted.with(name: "total.unit")
       ),
       (
         key: "total.decimal",
@@ -77,4 +67,18 @@
       ),
     )
   ),
+)
+
+
+#dining-table.make(columns: example, 
+  footer: (
+    table.cell(
+      colspan: 3, fill: none,
+      align(right, strong(smallcaps[total])),
+    ),
+    dining-table.contextual.sum("amount.unit"),[00],
+    dining-table.contextual.sum("total.unit"),[00]
+  ),
+  data: data*2, 
+  notes: dining-table.note.display-list
 )

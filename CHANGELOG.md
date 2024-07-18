@@ -1,6 +1,8 @@
 # [v0.1.1](https://github.com/JamesxX/dining-table/releases/tags/v0.1.1)
 ## Added
 - `.make(..args)` now takes `header` (none, auto, array) and `footer` (none, array) as arguments
+- (experimental) displayed data can optionally be labeled such that it can be queried, allowing for dynamic footers which show a running total, for example.
+
 
 ## Removed
 

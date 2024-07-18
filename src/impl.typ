@@ -153,7 +153,7 @@
     align: (inherit: true, default: start),
     gutter: (inherit: true, default: 0em),
     width: (inherit: true, default: auto),
-    display: (inherit: true, default: none),
+    display: (inherit: true, default: (it)=>[#it]),
     key: (inherit: false, default: ""),
   ))
   let row-display = query-result.map(it=>it.key.value).zip(
@@ -190,7 +190,7 @@
       for entry in data{ 
         row-display.map( ((key, display))=>{
           let data = data-from-key(entry, key, default: none)
-          if ((display) == none) {return data}
+          if ((display) == none) {return [#data]}
           display(data)
         })
         if hline != none {(hline,)}
