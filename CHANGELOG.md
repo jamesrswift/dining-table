@@ -1,5 +1,6 @@
 # [v0.1.1](https://github.com/JamesxX/dining-table/releases/tags/v0.1.1)
 ## Added
+- `.make(..args)` now takes `header` (none, auto, array) and `footer` (none, array) as arguments
 
 ## Removed
 
