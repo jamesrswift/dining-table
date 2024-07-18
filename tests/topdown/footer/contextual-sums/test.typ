@@ -42,7 +42,8 @@
       (
         key: "amount.decimal",
         header: align(right, text(number-type: "old-style")[.00]), 
-        align: left
+        align: left,
+        gutter: 0.5em,
       ),
     )
   ),
